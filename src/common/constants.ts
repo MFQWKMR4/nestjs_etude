@@ -1,5 +1,5 @@
 
-export enum BattleStatus {
+export enum RoomStatus {
     Waiting,
     Ready,
     Running,

@@ -5,7 +5,7 @@ import { UpdateBattleDto } from './dto/update-battle.dto';
 
 @Controller('battle')
 export class BattleController {
-  constructor(private readonly battleService: BattleService) {}
+  constructor(private readonly battleService: BattleService) { }
 
   @Post()
   create(@Body() createBattleDto: CreateBattleDto) {
