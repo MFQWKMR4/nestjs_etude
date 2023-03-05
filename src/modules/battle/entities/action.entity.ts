@@ -13,10 +13,10 @@ export class Action {
     @ManyToOne(() => Battle, (battle) => battle.actionRecords, { onDelete: 'CASCADE' })
     battle: Battle;
 
-    @ManyToOne(() => ActionMaster)
+    @ManyToOne(() => ActionMaster, { nullable: true })
     actionBy1: ActionMaster;
 
-    @ManyToOne(() => ActionMaster)
+    @ManyToOne(() => ActionMaster, { nullable: true })
     actionBy2: ActionMaster;
 
     @Column({ default: false })

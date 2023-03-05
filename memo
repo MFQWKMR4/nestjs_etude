@@ -7,3 +7,72 @@ filters: アプリケーションで使用される共通の例外フィルタ�
 decorators: アプリケーションで使用される共通のカスタムデコレータを含むディレクトリです。例えば、リクエストから必要な情報を抽出するためのデコレータや、特定のルートにアクセスするための認証用のデコレータをここで定義できます。
 
 dto : リクエストボディを定義するもの
+
+### MonsterTable
+#### field
+- name1 string
+- name2 string
+- hitpoint number
+- magicpoint number
+- attack number
+- diffense number
+- speed number
+- kind string
+- description string
+ユーザーが作成。name1とname2が一致したら、DBからとる。
+a,d,s,descriptionはgptから取得。
+
+### UserTable
+#### field
+- name string
+- like_monster_name string
+- unique_hash string
+like_monster_nameがパスワードみたいなもん。認証とかは特に気にしない。
+unique_hashで見分ける。
+
+### BattleTable
+#### field
+- firstMonster Monster
+- secondMonster Monster
+- phase Phase
+- actionRecords Action[]
+Roomが準備できたら始まる。monsterはnullableか
+battleにひもづくactionがふえていくイメージ
+
+### RoomTable
+#### field
+- status RoomStatus
+- createUser User
+- entryUser User nullable
+- battle Battle nullable
+ユーザーが作成。
+battleができたらそっちがメイン、おわったらresultかえして役目終える
+
+### ActionMasterTable
+#### field
+- name string
+- isAttack boolean
+- attack number
+- defense number
+- createUser User
+ユーザーが作成。nameが一致しなければgptから取得。
+
+### ActionTable
+#### field
+- battle Battle
+- turn number
+- actionBy1 Action nullable
+- actionBy2 Action nullable
+- isPerformed boolean
+ユーザーふたりが登録する。完了したら、バトルロジック走らせる。の繰り返し。
+
+
+開発メモ
+- nest g resourceで一括さくせい
+- https://github.com/GuillaumeNury/vscode-ts-auto-return-type で auto type completion
+- 
+
+要素
+- websocket
+- 外部api呼び出し
+- typeorm

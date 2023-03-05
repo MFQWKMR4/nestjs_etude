@@ -6,3 +6,15 @@ export enum RoomStatus {
     Result,
 }
 
+export enum BattlePhase {
+    Creating,
+    Starting,
+    Running,
+    Result,
+}
+
+export enum WsEvent {
+    RoomCreated,
+    BattleStarted,
+    ActionFixed,
+}

@@ -18,9 +18,9 @@ export class Room {
     @ManyToOne(() => User)
     createUser: User;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, { nullable: true })
     entryUser: User;
 
-    @OneToOne(() => Battle)
+    @OneToOne(() => Battle, { nullable: true })
     battle: Battle;
 }

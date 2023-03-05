@@ -10,10 +10,11 @@ import { RoomController } from './modules/room/room.controller';
 import { BattleController } from './modules/battle/battle.controller';
 import { MonsterController } from './modules/monster/monster.controller';
 import { UserController } from './modules/user/user.controller';
+import { EventsGateway } from './modules/events/events.gateway';
 
 @Module({
   imports: [RoomModule, UserModule, BattleModule, DatabaseModule, MonsterModule],
   controllers: [AppController, RoomController, BattleController, MonsterController, UserController],
-  providers: [AppService],
+  providers: [AppService, EventsGateway],
 })
 export class AppModule { }

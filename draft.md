@@ -1,4 +1,5 @@
 # chatgptにソースコード生成手伝ってもらうようDraft
+## Entity
 ### MonsterTable
 #### field
 - name1 string
@@ -28,8 +29,8 @@
 #### field
 - status RoomStatus
 - createUser User
-- entryUser User
-- battle Battle
+- entryUser User nullable
+- battle Battle nullable
 
 ### ActionMasterTable
 #### field
@@ -43,7 +44,9 @@
 #### field
 - battle Battle
 - turn number
-- actionBy1 Action
-- actionBy2 Action
+- actionBy1 Action nullable
+- actionBy2 Action nullable
 - isPerformed boolean
 
+
+## 
